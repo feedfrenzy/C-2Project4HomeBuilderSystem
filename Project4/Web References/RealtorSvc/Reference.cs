@@ -32,7 +32,7 @@ namespace Project4.RealtorSvc {
         
         private System.Threading.SendOrPostCallback GetHomesOperationCompleted;
         
-        private System.Threading.SendOrPostCallback GetUpdatesOperationCompleted;
+        private System.Threading.SendOrPostCallback doUpdatesOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
         
@@ -76,7 +76,7 @@ namespace Project4.RealtorSvc {
         public event GetHomesCompletedEventHandler GetHomesCompleted;
         
         /// <remarks/>
-        public event GetUpdatesCompletedEventHandler GetUpdatesCompleted;
+        public event doUpdatesCompletedEventHandler doUpdatesCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetHomes", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -106,31 +106,37 @@ namespace Project4.RealtorSvc {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetUpdates", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public string GetUpdates(string values) {
-            object[] results = this.Invoke("GetUpdates", new object[] {
-                        values});
-            return ((string)(results[0]));
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/doUpdates", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public System.Data.DataSet doUpdates(int maxprice, int footage, int bedroom, int bathroom) {
+            object[] results = this.Invoke("doUpdates", new object[] {
+                        maxprice,
+                        footage,
+                        bedroom,
+                        bathroom});
+            return ((System.Data.DataSet)(results[0]));
         }
         
         /// <remarks/>
-        public void GetUpdatesAsync(string values) {
-            this.GetUpdatesAsync(values, null);
+        public void doUpdatesAsync(int maxprice, int footage, int bedroom, int bathroom) {
+            this.doUpdatesAsync(maxprice, footage, bedroom, bathroom, null);
         }
         
         /// <remarks/>
-        public void GetUpdatesAsync(string values, object userState) {
-            if ((this.GetUpdatesOperationCompleted == null)) {
-                this.GetUpdatesOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetUpdatesOperationCompleted);
+        public void doUpdatesAsync(int maxprice, int footage, int bedroom, int bathroom, object userState) {
+            if ((this.doUpdatesOperationCompleted == null)) {
+                this.doUpdatesOperationCompleted = new System.Threading.SendOrPostCallback(this.OndoUpdatesOperationCompleted);
             }
-            this.InvokeAsync("GetUpdates", new object[] {
-                        values}, this.GetUpdatesOperationCompleted, userState);
+            this.InvokeAsync("doUpdates", new object[] {
+                        maxprice,
+                        footage,
+                        bedroom,
+                        bathroom}, this.doUpdatesOperationCompleted, userState);
         }
         
-        private void OnGetUpdatesOperationCompleted(object arg) {
-            if ((this.GetUpdatesCompleted != null)) {
+        private void OndoUpdatesOperationCompleted(object arg) {
+            if ((this.doUpdatesCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.GetUpdatesCompleted(this, new GetUpdatesCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+                this.doUpdatesCompleted(this, new doUpdatesCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -181,26 +187,26 @@ namespace Project4.RealtorSvc {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
-    public delegate void GetUpdatesCompletedEventHandler(object sender, GetUpdatesCompletedEventArgs e);
+    public delegate void doUpdatesCompletedEventHandler(object sender, doUpdatesCompletedEventArgs e);
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class GetUpdatesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+    public partial class doUpdatesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
         
-        internal GetUpdatesCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+        internal doUpdatesCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
         
         /// <remarks/>
-        public string Result {
+        public System.Data.DataSet Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
+                return ((System.Data.DataSet)(this.results[0]));
             }
         }
     }

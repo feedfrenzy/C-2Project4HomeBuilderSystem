@@ -22,13 +22,13 @@ namespace Project4 {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// Label1 control.
+        /// lblShow control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Label lblShow;
         
         /// <summary>
         /// gvHomes control.
@@ -40,22 +40,40 @@ namespace Project4 {
         protected global::System.Web.UI.WebControls.GridView gvHomes;
         
         /// <summary>
-        /// lblAvailability control.
+        /// lblMaxPrice control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAvailability;
+        protected global::System.Web.UI.WebControls.Label lblMaxPrice;
         
         /// <summary>
-        /// ddlAvailability control.
+        /// ddlMaxPrice control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlAvailability;
+        protected global::System.Web.UI.WebControls.DropDownList ddlMaxPrice;
+        
+        /// <summary>
+        /// lblSquare control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSquare;
+        
+        /// <summary>
+        /// ddlSquare control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlSquare;
         
         /// <summary>
         /// lblBedrooms control.
@@ -92,41 +110,5 @@ namespace Project4 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlBathrooms;
-        
-        /// <summary>
-        /// lblMinPrice control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMinPrice;
-        
-        /// <summary>
-        /// ddlMinPrice control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlMinPrice;
-        
-        /// <summary>
-        /// lblMaxPrice control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMaxPrice;
-        
-        /// <summary>
-        /// ddlMaxPrice control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlMaxPrice;
     }
 }

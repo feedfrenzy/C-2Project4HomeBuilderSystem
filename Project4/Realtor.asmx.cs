@@ -22,7 +22,7 @@ namespace Project4
     public class Realtor : System.Web.Services.WebService
     {
         DBConnect objDB = new DBConnect();
-        SqlCommand objCommand = new SqlCommand();
+        
 
         [WebMethod]
         public DataSet GetHomes()
@@ -34,15 +34,50 @@ namespace Project4
 
 
         [WebMethod]
-        public DataSet GetUpdates(string values)
+        public DataSet doUpdates(int maxprice, int footage, int bedroom, int bathroom)
         {
+            SqlCommand objCommand = new SqlCommand();
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "updateHomes";
 
-            string strHomes = "SELECT * FROM HOMES";
-            DataSet Homes = objDB.GetDataSet(strHomes);
-            return Homes;
-            //DataSet Updates;
 
-            //return Updates;
+            objCommand.Parameters.AddWithValue("@theMaxPrice", maxprice);
+            objCommand.Parameters.AddWithValue("@theSquare", footage);
+            objCommand.Parameters.AddWithValue("@theBedrooms", bedroom);
+            objCommand.Parameters.AddWithValue("@theBathrooms", bathroom);
+
+            DataSet ds = objDB.GetDataSetUsingCmdObj(objCommand);
+            return ds;
+
+            //SqlParameter inputParameter = new SqlParameter("@theAva", ava);
+            //inputParameter.Direction = ParameterDirection.Input;
+            //inputParameter.SqlDbType = SqlDbType.VarChar;
+            //objCommand.Parameters.Add(inputParameter);
+
+            //inputParameter = new SqlParameter("@theMinPrice", minprice);
+            //inputParameter.Direction = ParameterDirection.Input;
+            //inputParameter.SqlDbType = SqlDbType.Int;
+            //objCommand.Parameters.Add(inputParameter);
+
+            //inputParameter = new SqlParameter("@theMaxPrice", maxprice);
+            //inputParameter.Direction = ParameterDirection.Input;
+            //inputParameter.SqlDbType = SqlDbType.Int;
+            //objCommand.Parameters.Add(inputParameter);
+
+            //inputParameter = new SqlParameter("@theSquare", footage);
+            //inputParameter.Direction = ParameterDirection.Input;
+            //inputParameter.SqlDbType = SqlDbType.Int;
+            //objCommand.Parameters.Add(inputParameter);
+
+            //inputParameter = new SqlParameter("@theBedrooms", bedroom);
+            //inputParameter.Direction = ParameterDirection.Input;
+            //inputParameter.SqlDbType = SqlDbType.Int;
+            //objCommand.Parameters.Add(inputParameter);
+
+            //inputParameter = new SqlParameter("@theBathrooms", bathroom);
+            //inputParameter.Direction = ParameterDirection.Input;
+            //inputParameter.SqlDbType = SqlDbType.Int;
+            //objCommand.Parameters.Add(inputParameter);
         }
 
 
