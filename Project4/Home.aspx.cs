@@ -98,5 +98,14 @@ namespace Project4
 
             lblShow.Text = "If you didnt see any grid view, that means no categories match in database.";
         }
+
+        protected void btnShow_Click(object sender, EventArgs e)
+        {
+            lblShow.Text = "";
+
+
+            gvHomes.DataSource = pxy.GetHomes();
+            gvHomes.DataBind();
+        }
     }
 }

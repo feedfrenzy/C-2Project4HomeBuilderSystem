@@ -4,12 +4,13 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Jie's Realtor Website</title>
+
 </head>
 <body>
     <form id="form1" runat="server">
         <div>
-
+            <h1>Jie's Realtor Website</h1><br />
             <asp:Label ID="lblShow" runat="server" ForeColor="Green"></asp:Label>
 
             <asp:GridView ID="gvHomes" runat="server" AutoGenerateColumns="False">
@@ -90,8 +91,12 @@
                 <asp:ListItem>9</asp:ListItem>
                 <asp:ListItem>10</asp:ListItem>
             </asp:DropDownList><br />
+          
 
+            <br /><asp:Button ID="btnShow" runat="server" Text="Show All" OnClick="btnShow_Click" />
         </div>
+
+        
 
     </form>
 </body>
