@@ -13,8 +13,9 @@
             <h1>Jie's Realtor Website</h1><br />
             <asp:Label ID="lblShow" runat="server" ForeColor="Green"></asp:Label>
 
-            <asp:GridView ID="gvHomes" runat="server" AutoGenerateColumns="False">
+            <asp:GridView ID="gvHomes" runat="server" AutoGenerateColumns="False" OnRowCommand="gvHomes_RowCommand" OnRowEditing="gvHomes_RowEditing">
                 <Columns>
+                    <asp:BoundField DataField="Id" HeaderText="ID" />
                     <asp:BoundField DataField="Address" HeaderText="Home Address" />
                     <asp:BoundField DataField="City" HeaderText="City" />
                     <asp:BoundField DataField="State" HeaderText="State" />
@@ -23,12 +24,10 @@
                     <asp:BoundField DataField="Bedrooms" HeaderText="Number of Bedrooms" />
                     <asp:BoundField DataField="Bathrooms" HeaderText="Number of Bathrooms" />
                     <asp:BoundField DataField="CStatus" HeaderText="Status" />
+                    <asp:ButtonField ButtonType="Button" CommandName="updateHouse" HeaderText="Update" Text="Update" />
+                    <asp:ButtonField ButtonType="Button" CommandName="deleteHouse" HeaderText="Remove" Text="Delete" />
                 </Columns>
             </asp:GridView>
-
-
-
-        
 
             <asp:Label ID="lblMaxPrice" runat="server" Text="Maximum Price: "></asp:Label><br />
             <asp:DropDownList ID="ddlMaxPrice" runat="server" OnSelectedIndexChanged="ddlMaxPrice_SelectedIndexChanged" AutoPostBack="True">
@@ -93,11 +92,33 @@
             </asp:DropDownList><br />
           
 
-            <br /><asp:Button ID="btnShow" runat="server" Text="Show All" OnClick="btnShow_Click" />
+            <asp:Button ID="btnShow" runat="server" Text="Show All" OnClick="btnShow_Click" />
+            
+            <br /><br /><br /><h1>Add Houses</h1>
+            <asp:Label ID="lblAddress" runat="server" Text="House Address: "></asp:Label><br />
+            <asp:TextBox ID="txtAddress" runat="server"></asp:TextBox><br />
+
+            <br /><asp:Label ID="lblCity" runat="server" Text="City: "></asp:Label><br />
+            <asp:TextBox ID="txtCity" runat="server"></asp:TextBox><br />
+
+            <br /><asp:Label ID="lblState" runat="server" Text="State: "></asp:Label><br />
+            <asp:TextBox ID="txtState" runat="server"></asp:TextBox><br />
+
+            <br /><asp:Label ID="lblPrice" runat="server" Text="Price: "></asp:Label><br />
+            <asp:TextBox ID="txtPrice" runat="server"></asp:TextBox><br />
+
+            <br /><asp:Label ID="lblFootage" runat="server" Text="Footage: "></asp:Label><br />
+            <asp:TextBox ID="txtFootage" runat="server"></asp:TextBox><br />
+
+            <br /><asp:Label ID="lblBedroom" runat="server" Text="# of Bedrooms: "></asp:Label><br />
+            <asp:TextBox ID="txtBedrooms" runat="server"></asp:TextBox><br />
+
+            <br /><asp:Label ID="lblBathroom" runat="server" Text="# of Bathrooms: "></asp:Label><br />
+            <asp:TextBox ID="txtBathrooms" runat="server"></asp:TextBox><br />
+
+            <br /><asp:Button ID="btnAdd" runat="server" Text="Add House" OnClick="btnAdd_Click" />
+
         </div>
-
-        
-
     </form>
 </body>
 </html>

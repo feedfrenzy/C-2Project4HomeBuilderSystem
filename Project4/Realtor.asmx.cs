@@ -23,7 +23,6 @@ namespace Project4
     {
         DBConnect objDB = new DBConnect();
         
-
         [WebMethod]
         public DataSet GetHomes()
         {
@@ -48,40 +47,43 @@ namespace Project4
 
             DataSet ds = objDB.GetDataSetUsingCmdObj(objCommand);
             return ds;
-
-            //SqlParameter inputParameter = new SqlParameter("@theAva", ava);
-            //inputParameter.Direction = ParameterDirection.Input;
-            //inputParameter.SqlDbType = SqlDbType.VarChar;
-            //objCommand.Parameters.Add(inputParameter);
-
-            //inputParameter = new SqlParameter("@theMinPrice", minprice);
-            //inputParameter.Direction = ParameterDirection.Input;
-            //inputParameter.SqlDbType = SqlDbType.Int;
-            //objCommand.Parameters.Add(inputParameter);
-
-            //inputParameter = new SqlParameter("@theMaxPrice", maxprice);
-            //inputParameter.Direction = ParameterDirection.Input;
-            //inputParameter.SqlDbType = SqlDbType.Int;
-            //objCommand.Parameters.Add(inputParameter);
-
-            //inputParameter = new SqlParameter("@theSquare", footage);
-            //inputParameter.Direction = ParameterDirection.Input;
-            //inputParameter.SqlDbType = SqlDbType.Int;
-            //objCommand.Parameters.Add(inputParameter);
-
-            //inputParameter = new SqlParameter("@theBedrooms", bedroom);
-            //inputParameter.Direction = ParameterDirection.Input;
-            //inputParameter.SqlDbType = SqlDbType.Int;
-            //objCommand.Parameters.Add(inputParameter);
-
-            //inputParameter = new SqlParameter("@theBathrooms", bathroom);
-            //inputParameter.Direction = ParameterDirection.Input;
-            //inputParameter.SqlDbType = SqlDbType.Int;
-            //objCommand.Parameters.Add(inputParameter);
         }
 
 
+        [WebMethod]
+        public void deleteHouse(int houseID)
+        {
+            SqlCommand objCommand = new SqlCommand();
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "deleteHouse";
 
+            SqlParameter input = new SqlParameter("@houseID", houseID);
+            input.Direction = ParameterDirection.Input;
+            input.SqlDbType = SqlDbType.Int;
+            objCommand.Parameters.Add(input);
+
+            objDB.GetDataSetUsingCmdObj(objCommand);
+        }
+
+
+        [WebMethod]
+        public void addHouse(string address, string city, string state, string status, int price, int footage, int bedrooms, int bathrooms)
+        {
+            SqlCommand objCommand = new SqlCommand();
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "AddHomes";
+
+            objCommand.Parameters.AddWithValue("@theAddress", address);
+            objCommand.Parameters.AddWithValue("@theCity", city);
+            objCommand.Parameters.AddWithValue("@theState", state);
+            objCommand.Parameters.AddWithValue("@theStatus", status);
+            objCommand.Parameters.AddWithValue("@thePrice", price);
+            objCommand.Parameters.AddWithValue("@theFootage", footage);
+            objCommand.Parameters.AddWithValue("@theBedroom", bedrooms);
+            objCommand.Parameters.AddWithValue("@theBathroom", bathrooms);
+
+            objDB.DoUpdateUsingCmdObj(objCommand);
+        }
 
 
     }

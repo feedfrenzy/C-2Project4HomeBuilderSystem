@@ -64,6 +64,7 @@
     </Content>
     <Content Include="Realtor.asmx" />
     <None Include="Web References\RealtorSvc\Realtor.disco" />
+    <Content Include="UpdateHomes.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -83,6 +84,13 @@
     <Compile Include="Realtor.asmx.cs">
       <DependentUpon>Realtor.asmx</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UpdateHomes.aspx.cs">
+      <DependentUpon>UpdateHomes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UpdateHomes.aspx.designer.cs">
+      <DependentUpon>UpdateHomes.aspx</DependentUpon>
     </Compile>
     <Compile Include="Web References\RealtorSvc\Reference.cs">
       <AutoGen>True</AutoGen>
@@ -110,12 +118,6 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Utilities\Utilities.csproj">
-      <Project>{6224a378-eef4-4ee0-a009-ac8ce1260cb1}</Project>
-      <Name>Utilities</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <WebReferenceUrl Include="http://localhost:33264/Realtor.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\RealtorSvc\</RelPath>
@@ -127,6 +129,16 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>Project4_RealtorSvc_Realtor</CachedSettingsPropName>
     </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Utilities\Utilities.csproj">
+      <Project>{6224a378-eef4-4ee0-a009-ac8ce1260cb1}</Project>
+      <Name>Utilities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RealtorLibrary\RealtorLibrary.csproj">
+      <Project>{81cfd5db-11f5-48bc-8e5e-0ad85dd5233c}</Project>
+      <Name>RealtorLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

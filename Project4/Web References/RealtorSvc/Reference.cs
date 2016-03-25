@@ -24,7 +24,7 @@ namespace Project4.RealtorSvc {
     
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Web.Services.WebServiceBindingAttribute(Name="RealtorSoap", Namespace="http://tempuri.org/")]
@@ -33,6 +33,10 @@ namespace Project4.RealtorSvc {
         private System.Threading.SendOrPostCallback GetHomesOperationCompleted;
         
         private System.Threading.SendOrPostCallback doUpdatesOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback deleteHouseOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback addHouseOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
         
@@ -77,6 +81,12 @@ namespace Project4.RealtorSvc {
         
         /// <remarks/>
         public event doUpdatesCompletedEventHandler doUpdatesCompleted;
+        
+        /// <remarks/>
+        public event deleteHouseCompletedEventHandler deleteHouseCompleted;
+        
+        /// <remarks/>
+        public event addHouseCompletedEventHandler addHouseCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetHomes", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -141,6 +151,76 @@ namespace Project4.RealtorSvc {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/deleteHouse", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void deleteHouse(int houseID) {
+            this.Invoke("deleteHouse", new object[] {
+                        houseID});
+        }
+        
+        /// <remarks/>
+        public void deleteHouseAsync(int houseID) {
+            this.deleteHouseAsync(houseID, null);
+        }
+        
+        /// <remarks/>
+        public void deleteHouseAsync(int houseID, object userState) {
+            if ((this.deleteHouseOperationCompleted == null)) {
+                this.deleteHouseOperationCompleted = new System.Threading.SendOrPostCallback(this.OndeleteHouseOperationCompleted);
+            }
+            this.InvokeAsync("deleteHouse", new object[] {
+                        houseID}, this.deleteHouseOperationCompleted, userState);
+        }
+        
+        private void OndeleteHouseOperationCompleted(object arg) {
+            if ((this.deleteHouseCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.deleteHouseCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/addHouse", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void addHouse(string address, string city, string state, string status, int price, int footage, int bedrooms, int bathrooms) {
+            this.Invoke("addHouse", new object[] {
+                        address,
+                        city,
+                        state,
+                        status,
+                        price,
+                        footage,
+                        bedrooms,
+                        bathrooms});
+        }
+        
+        /// <remarks/>
+        public void addHouseAsync(string address, string city, string state, string status, int price, int footage, int bedrooms, int bathrooms) {
+            this.addHouseAsync(address, city, state, status, price, footage, bedrooms, bathrooms, null);
+        }
+        
+        /// <remarks/>
+        public void addHouseAsync(string address, string city, string state, string status, int price, int footage, int bedrooms, int bathrooms, object userState) {
+            if ((this.addHouseOperationCompleted == null)) {
+                this.addHouseOperationCompleted = new System.Threading.SendOrPostCallback(this.OnaddHouseOperationCompleted);
+            }
+            this.InvokeAsync("addHouse", new object[] {
+                        address,
+                        city,
+                        state,
+                        status,
+                        price,
+                        footage,
+                        bedrooms,
+                        bathrooms}, this.addHouseOperationCompleted, userState);
+        }
+        
+        private void OnaddHouseOperationCompleted(object arg) {
+            if ((this.addHouseCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.addHouseCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -160,11 +240,11 @@ namespace Project4.RealtorSvc {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     public delegate void GetHomesCompletedEventHandler(object sender, GetHomesCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class GetHomesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -186,11 +266,11 @@ namespace Project4.RealtorSvc {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     public delegate void doUpdatesCompletedEventHandler(object sender, doUpdatesCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class doUpdatesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -210,6 +290,14 @@ namespace Project4.RealtorSvc {
             }
         }
     }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    public delegate void deleteHouseCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    public delegate void addHouseCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
 }
 
 #pragma warning restore 1591

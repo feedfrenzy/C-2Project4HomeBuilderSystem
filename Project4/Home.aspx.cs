@@ -14,6 +14,7 @@ namespace Project4
     public partial class Home : System.Web.UI.Page
     {
         RealtorSvc.Realtor pxy = new RealtorSvc.Realtor();
+        
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -21,6 +22,7 @@ namespace Project4
             {
                 gvHomes.DataSource = pxy.GetHomes();
                 gvHomes.DataBind();
+                gvHomes.Columns[0].Visible = false;
             }
         }
 
@@ -71,7 +73,6 @@ namespace Project4
 
         protected void ddlMaxPrice_SelectedIndexChanged(object sender, EventArgs e)
         {
-
             int bathrooms = int.Parse(ddlBathrooms.SelectedValue);
             int bedrooms = int.Parse(ddlBedrooms.SelectedValue);
             int maxPrice = int.Parse(ddlMaxPrice.SelectedValue);
@@ -106,6 +107,54 @@ namespace Project4
 
             gvHomes.DataSource = pxy.GetHomes();
             gvHomes.DataBind();
+        }
+
+        protected void btnAdd_Click(object sender, EventArgs e)
+        {
+            string address = txtAddress.Text.ToString();
+            string city = txtCity.Text.ToString();
+            string state = txtState.Text.ToString();
+            string status = "Sale";
+            int price = int.Parse(txtPrice.Text);
+            int footage = int.Parse(txtFootage.Text);
+            int bedroom = int.Parse(txtBedrooms.Text);
+            int bathroom = int.Parse(txtBathrooms.Text);
+
+            pxy.addHouse(address, city, state, status, price, footage, bedroom, bathroom);
+
+            gvHomes.DataSource = pxy.GetHomes();
+            gvHomes.DataBind();
+
+            txtAddress.Text = "";
+            txtCity.Text = "";
+            txtState.Text = "";
+            txtPrice.Text = "";
+            txtFootage.Text = "";
+            txtBedrooms.Text = "";
+            txtBathrooms.Text = "";  
+        }
+
+        protected void gvHomes_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "updateHouse")
+            {
+
+            }
+            else if (e.CommandName == "deleteHouse")
+            {
+                int index = Convert.ToInt32(e.CommandArgument);
+                int houseID = int.Parse(gvHomes.Rows[index].Cells[0].Text);
+
+                pxy.deleteHouse(houseID);
+
+                gvHomes.DataSource = pxy.GetHomes();
+                gvHomes.DataBind();
+            }
+        }
+
+        protected void gvHomes_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            gvHomes.EditIndex = e.NewEditIndex;
         }
     }
 }

@@ -43,6 +43,33 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="deleteHouse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="houseID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteHouseResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="addHouse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="address" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="city" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="state" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="status" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="price" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="footage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="bedrooms" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="bathrooms" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="addHouseResponse">
+        <s:complexType />
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="GetHomesSoapIn">
@@ -57,6 +84,18 @@
   <wsdl:message name="doUpdatesSoapOut">
     <wsdl:part name="parameters" element="tns:doUpdatesResponse" />
   </wsdl:message>
+  <wsdl:message name="deleteHouseSoapIn">
+    <wsdl:part name="parameters" element="tns:deleteHouse" />
+  </wsdl:message>
+  <wsdl:message name="deleteHouseSoapOut">
+    <wsdl:part name="parameters" element="tns:deleteHouseResponse" />
+  </wsdl:message>
+  <wsdl:message name="addHouseSoapIn">
+    <wsdl:part name="parameters" element="tns:addHouse" />
+  </wsdl:message>
+  <wsdl:message name="addHouseSoapOut">
+    <wsdl:part name="parameters" element="tns:addHouseResponse" />
+  </wsdl:message>
   <wsdl:portType name="RealtorSoap">
     <wsdl:operation name="GetHomes">
       <wsdl:input message="tns:GetHomesSoapIn" />
@@ -65,6 +104,14 @@
     <wsdl:operation name="doUpdates">
       <wsdl:input message="tns:doUpdatesSoapIn" />
       <wsdl:output message="tns:doUpdatesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteHouse">
+      <wsdl:input message="tns:deleteHouseSoapIn" />
+      <wsdl:output message="tns:deleteHouseSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="addHouse">
+      <wsdl:input message="tns:addHouseSoapIn" />
+      <wsdl:output message="tns:addHouseSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="RealtorSoap" type="tns:RealtorSoap">
@@ -87,6 +134,24 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="deleteHouse">
+      <soap:operation soapAction="http://tempuri.org/deleteHouse" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addHouse">
+      <soap:operation soapAction="http://tempuri.org/addHouse" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="RealtorSoap12" type="tns:RealtorSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -101,6 +166,24 @@
     </wsdl:operation>
     <wsdl:operation name="doUpdates">
       <soap12:operation soapAction="http://tempuri.org/doUpdates" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteHouse">
+      <soap12:operation soapAction="http://tempuri.org/deleteHouse" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addHouse">
+      <soap12:operation soapAction="http://tempuri.org/addHouse" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
