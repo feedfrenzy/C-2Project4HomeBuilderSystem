@@ -86,5 +86,25 @@ namespace Project4
         }
 
 
+        [WebMethod]
+        public DataSet showSelectedHouse(int id)
+        {
+            SqlCommand objCommand = new SqlCommand();
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "ShowSelectedHomes";
+
+            objCommand.Parameters.AddWithValue("@theId", id);
+
+            DataSet ds = objDB.GetDataSetUsingCmdObj(objCommand);
+            return ds;
+        }
+
+
+        [WebMethod]
+        public void updateSelectedHouse()
+        {
+
+        }
+
     }
 }

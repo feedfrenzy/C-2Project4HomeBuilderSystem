@@ -7,4 +7,3 @@ G:\CIS3342\CIS3342Solution\Project4\RealtorLibrary\bin\Debug\RealtorLibrary.dll
 G:\CIS3342\CIS3342Solution\Project4\RealtorLibrary\bin\Debug\RealtorLibrary.pdb
 G:\CIS3342\CIS3342Solution\Project4\RealtorLibrary\obj\Debug\RealtorLibrary.dll
 G:\CIS3342\CIS3342Solution\Project4\RealtorLibrary\obj\Debug\RealtorLibrary.pdb
-G:\CIS3342\CIS3342Solution\Project4\RealtorLibrary\obj\Debug\RealtorLibrary.csprojResolveAssemblyReference.cache

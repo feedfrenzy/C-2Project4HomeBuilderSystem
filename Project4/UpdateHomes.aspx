@@ -19,7 +19,7 @@
                 <asp:BoundField DataField="Footage" HeaderText="Square Foot" />
                 <asp:BoundField DataField="Bedrooms" HeaderText="Bedrooms" />
                 <asp:BoundField DataField="Bathrooms" HeaderText="Bathrooms" />
-                <asp:BoundField DataField="CState" HeaderText="Status" />
+                <asp:BoundField DataField="CStatus" HeaderText="Status" />
             </Columns>
         </asp:GridView>
         <br />

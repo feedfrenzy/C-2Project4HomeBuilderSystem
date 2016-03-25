@@ -15,7 +15,6 @@ namespace Project4
     {
         RealtorSvc.Realtor pxy = new RealtorSvc.Realtor();
         
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -138,7 +137,10 @@ namespace Project4
         {
             if (e.CommandName == "updateHouse")
             {
+                int index = Convert.ToInt32(e.CommandArgument);
+                pxy.showSelectedHouse(int.Parse(gvHomes.Rows[index].Cells[0].Text));
 
+                Response.Redirect("UpdateHomes.aspx");
             }
             else if (e.CommandName == "deleteHouse")
             {

@@ -38,6 +38,10 @@ namespace Project4.RealtorSvc {
         
         private System.Threading.SendOrPostCallback addHouseOperationCompleted;
         
+        private System.Threading.SendOrPostCallback showSelectedHouseOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback updateSelectedHouseOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -87,6 +91,12 @@ namespace Project4.RealtorSvc {
         
         /// <remarks/>
         public event addHouseCompletedEventHandler addHouseCompleted;
+        
+        /// <remarks/>
+        public event showSelectedHouseCompletedEventHandler showSelectedHouseCompleted;
+        
+        /// <remarks/>
+        public event updateSelectedHouseCompletedEventHandler updateSelectedHouseCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetHomes", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -221,6 +231,61 @@ namespace Project4.RealtorSvc {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/showSelectedHouse", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public System.Data.DataSet showSelectedHouse(int id) {
+            object[] results = this.Invoke("showSelectedHouse", new object[] {
+                        id});
+            return ((System.Data.DataSet)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void showSelectedHouseAsync(int id) {
+            this.showSelectedHouseAsync(id, null);
+        }
+        
+        /// <remarks/>
+        public void showSelectedHouseAsync(int id, object userState) {
+            if ((this.showSelectedHouseOperationCompleted == null)) {
+                this.showSelectedHouseOperationCompleted = new System.Threading.SendOrPostCallback(this.OnshowSelectedHouseOperationCompleted);
+            }
+            this.InvokeAsync("showSelectedHouse", new object[] {
+                        id}, this.showSelectedHouseOperationCompleted, userState);
+        }
+        
+        private void OnshowSelectedHouseOperationCompleted(object arg) {
+            if ((this.showSelectedHouseCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.showSelectedHouseCompleted(this, new showSelectedHouseCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/updateSelectedHouse", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void updateSelectedHouse() {
+            this.Invoke("updateSelectedHouse", new object[0]);
+        }
+        
+        /// <remarks/>
+        public void updateSelectedHouseAsync() {
+            this.updateSelectedHouseAsync(null);
+        }
+        
+        /// <remarks/>
+        public void updateSelectedHouseAsync(object userState) {
+            if ((this.updateSelectedHouseOperationCompleted == null)) {
+                this.updateSelectedHouseOperationCompleted = new System.Threading.SendOrPostCallback(this.OnupdateSelectedHouseOperationCompleted);
+            }
+            this.InvokeAsync("updateSelectedHouse", new object[0], this.updateSelectedHouseOperationCompleted, userState);
+        }
+        
+        private void OnupdateSelectedHouseOperationCompleted(object arg) {
+            if ((this.updateSelectedHouseCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.updateSelectedHouseCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -298,6 +363,36 @@ namespace Project4.RealtorSvc {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     public delegate void addHouseCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    public delegate void showSelectedHouseCompletedEventHandler(object sender, showSelectedHouseCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class showSelectedHouseCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal showSelectedHouseCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public System.Data.DataSet Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((System.Data.DataSet)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    public delegate void updateSelectedHouseCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
 }
 
 #pragma warning restore 1591
