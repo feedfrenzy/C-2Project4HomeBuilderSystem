@@ -8,5 +8,21 @@ namespace RealtorLibrary
 {
     class Client
     {
+        string clientName = "";
+
+
+        public Client()
+        {
+
+        }
+
+
+        public string getName
+        {
+            set { clientName = value; }
+            get { return clientName; }
+        }
+
+
     }
 }

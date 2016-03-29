@@ -101,9 +101,28 @@ namespace Project4
 
 
         [WebMethod]
-        public void updateSelectedHouse()
+        public void updateSelectedHouse(string id,string status, string address, string city, string state, int price, int footage, int bedroom, int bathroom)
         {
 
+            int theID = int.Parse(id);
+
+
+            SqlCommand objCommand = new SqlCommand();
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "UpdateSelectedHomes";
+
+            objCommand.Parameters.AddWithValue("@theID", theID);
+            objCommand.Parameters.AddWithValue("@theStatus", status);
+            objCommand.Parameters.AddWithValue("@theAddress", address);
+
+            objCommand.Parameters.AddWithValue("@theCity", city);
+            objCommand.Parameters.AddWithValue("@theState", state);
+            objCommand.Parameters.AddWithValue("@thePrice", price);
+            objCommand.Parameters.AddWithValue("@theFootage", footage);
+            objCommand.Parameters.AddWithValue("@theBedrooms", bedroom);
+            objCommand.Parameters.AddWithValue("@theBathrooms", bathroom);
+
+            objDB.DoUpdateUsingCmdObj(objCommand);
         }
 
     }

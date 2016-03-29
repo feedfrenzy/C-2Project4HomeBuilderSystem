@@ -31,6 +31,42 @@ namespace Project4 {
         protected global::System.Web.UI.WebControls.GridView gvSelectedHomes;
         
         /// <summary>
+        /// lblShow control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblShow;
+        
+        /// <summary>
+        /// lblWarning control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblWarning;
+        
+        /// <summary>
+        /// lblStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblStatus;
+        
+        /// <summary>
+        /// ddlStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlStatus;
+        
+        /// <summary>
         /// lblAddress control.
         /// </summary>
         /// <remarks>
@@ -112,13 +148,13 @@ namespace Project4 {
         protected global::System.Web.UI.WebControls.Label lblFootage;
         
         /// <summary>
-        /// txtFootage control.
+        /// ddlSquare control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFootage;
+        protected global::System.Web.UI.WebControls.DropDownList ddlSquare;
         
         /// <summary>
         /// lblBedroom control.
@@ -130,13 +166,13 @@ namespace Project4 {
         protected global::System.Web.UI.WebControls.Label lblBedroom;
         
         /// <summary>
-        /// txtBedrooms control.
+        /// ddlBedrooms control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBedrooms;
+        protected global::System.Web.UI.WebControls.DropDownList ddlBedrooms;
         
         /// <summary>
         /// lblBathroom control.
@@ -148,13 +184,13 @@ namespace Project4 {
         protected global::System.Web.UI.WebControls.Label lblBathroom;
         
         /// <summary>
-        /// txtBathrooms control.
+        /// ddlBathrooms control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBathrooms;
+        protected global::System.Web.UI.WebControls.DropDownList ddlBathrooms;
         
         /// <summary>
         /// btnSubmit control.

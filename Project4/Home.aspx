@@ -13,7 +13,7 @@
             <h1>Jie's Realtor Website</h1><br />
             <asp:Label ID="lblShow" runat="server" ForeColor="Green"></asp:Label>
 
-            <asp:GridView ID="gvHomes" runat="server" AutoGenerateColumns="False" OnRowCommand="gvHomes_RowCommand" OnRowEditing="gvHomes_RowEditing">
+            <asp:GridView ID="gvHomes" runat="server" AutoGenerateColumns="False" OnRowCommand="gvHomes_RowCommand">
                 <Columns>
                     <asp:BoundField DataField="Id" HeaderText="ID" />
                     <asp:BoundField DataField="Address" HeaderText="Home Address" />
@@ -92,10 +92,13 @@
             </asp:DropDownList><br />
           
 
-            <asp:Button ID="btnShow" runat="server" Text="Show All" OnClick="btnShow_Click" />
+            <br /><asp:Button ID="btnShow" runat="server" Text="Show All" OnClick="btnShow_Click" />
             
             <br /><br /><br /><h1>Add Houses</h1>
-            <asp:Label ID="lblAddress" runat="server" Text="House Address: "></asp:Label><br />
+            <asp:Label ID="lblShowEnter" runat="server" ForeColor="Green"></asp:Label><br />
+            <br /><asp:Label ID="lblWarning" runat="server" ForeColor="Red"></asp:Label><br />
+            <br /><asp:Label ID="lblAddress" runat="server" Text="House Address: "></asp:Label>
+            <br />
             <asp:TextBox ID="txtAddress" runat="server"></asp:TextBox><br />
 
             <br /><asp:Label ID="lblCity" runat="server" Text="City: "></asp:Label><br />

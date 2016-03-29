@@ -17,11 +17,13 @@ namespace Project4
         
         protected void Page_Load(object sender, EventArgs e)
         {
+            //gvHomes.Columns[0].Visible = false;
+
             if (!IsPostBack)
             {
                 gvHomes.DataSource = pxy.GetHomes();
                 gvHomes.DataBind();
-                gvHomes.Columns[0].Visible = false;
+                
             }
         }
 
@@ -114,23 +116,85 @@ namespace Project4
             string city = txtCity.Text.ToString();
             string state = txtState.Text.ToString();
             string status = "Sale";
-            int price = int.Parse(txtPrice.Text);
-            int footage = int.Parse(txtFootage.Text);
-            int bedroom = int.Parse(txtBedrooms.Text);
-            int bathroom = int.Parse(txtBathrooms.Text);
 
-            pxy.addHouse(address, city, state, status, price, footage, bedroom, bathroom);
+            long num;
+            int number;
 
-            gvHomes.DataSource = pxy.GetHomes();
-            gvHomes.DataBind();
+            if (!String.IsNullOrEmpty(address))
+            {
+                if (!String.IsNullOrEmpty(city))
+                {
+                    if (!String.IsNullOrEmpty(state))
+                    {
+                        if (Int64.TryParse(txtPrice.Text, out num)&& txtPrice.Text != "")
+                        {
+                            int price = int.Parse(txtPrice.Text);
 
-            txtAddress.Text = "";
-            txtCity.Text = "";
-            txtState.Text = "";
-            txtPrice.Text = "";
-            txtFootage.Text = "";
-            txtBedrooms.Text = "";
-            txtBathrooms.Text = "";  
+                            if (int.TryParse(txtFootage.Text, out number) && txtFootage.Text != "")
+                            {
+                                int footage = int.Parse(txtFootage.Text);
+
+                                if (int.TryParse(txtBedrooms.Text, out number)&&txtBedrooms.Text !="")
+                                {
+                                    int bedroom = int.Parse(txtBedrooms.Text);
+
+                                    if (int.TryParse(txtBathrooms.Text, out number)&&txtBathrooms.Text !="")
+                                    {
+                                        int bathroom = int.Parse(txtBathrooms.Text);
+
+                                        pxy.addHouse(address, city, state, status, price, footage, bedroom, bathroom);
+
+                                        gvHomes.DataSource = pxy.GetHomes();
+                                        gvHomes.DataBind();
+
+                                        txtAddress.Text = "";
+                                        txtCity.Text = "";
+                                        txtState.Text = "";
+                                        txtPrice.Text = "";
+                                        txtFootage.Text = "";
+                                        txtBedrooms.Text = "";
+                                        txtBathrooms.Text = "";
+
+                                        lblShowEnter.Text = "New Home Listed!";
+                                        lblWarning.Text = "";
+
+                                    }
+                                    else
+                                    {
+                                        lblWarning.Text = "Bathroom count must be integer and can not be empty!";
+                                    }
+                                }
+                                else
+                                {
+                                    lblWarning.Text = "Bedroom count must be integer and can not be empty!";
+                                }
+                            }
+                            else
+                            {
+                                lblWarning.Text = "Square Footage must be integer and can not be empty!";
+                            }
+                            
+                        }
+                        else
+                        {
+                            lblWarning.Text = "Price must be integer and can not be empty!";
+                        }
+                    }
+                    else
+                    {
+                        lblWarning.Text = "State can not be empty!";
+                    }
+                }
+                else
+                {
+                    lblWarning.Text = "City can not be empty!";
+                }
+            }
+            else
+            {
+                lblWarning.Text = "Address can not be empty!";
+            }
+   
         }
 
         protected void gvHomes_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -138,7 +202,12 @@ namespace Project4
             if (e.CommandName == "updateHouse")
             {
                 int index = Convert.ToInt32(e.CommandArgument);
-                pxy.showSelectedHouse(int.Parse(gvHomes.Rows[index].Cells[0].Text));
+
+                Session["updateID"] = int.Parse(gvHomes.Rows[index].Cells[0].Text);
+
+
+                Session["updateDataSet"] = pxy.showSelectedHouse(int.Parse(gvHomes.Rows[index].Cells[0].Text));
+
 
                 Response.Redirect("UpdateHomes.aspx");
             }
@@ -154,9 +223,6 @@ namespace Project4
             }
         }
 
-        protected void gvHomes_RowEditing(object sender, GridViewEditEventArgs e)
-        {
-            gvHomes.EditIndex = e.NewEditIndex;
-        }
+
     }
 }

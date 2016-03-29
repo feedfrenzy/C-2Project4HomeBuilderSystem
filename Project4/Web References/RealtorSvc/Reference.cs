@@ -24,7 +24,7 @@ namespace Project4.RealtorSvc {
     
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Web.Services.WebServiceBindingAttribute(Name="RealtorSoap", Namespace="http://tempuri.org/")]
@@ -261,21 +261,39 @@ namespace Project4.RealtorSvc {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/updateSelectedHouse", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void updateSelectedHouse() {
-            this.Invoke("updateSelectedHouse", new object[0]);
+        public void updateSelectedHouse(string id, string status, string address, string city, string state, int price, int footage, int bedroom, int bathroom) {
+            this.Invoke("updateSelectedHouse", new object[] {
+                        id,
+                        status,
+                        address,
+                        city,
+                        state,
+                        price,
+                        footage,
+                        bedroom,
+                        bathroom});
         }
         
         /// <remarks/>
-        public void updateSelectedHouseAsync() {
-            this.updateSelectedHouseAsync(null);
+        public void updateSelectedHouseAsync(string id, string status, string address, string city, string state, int price, int footage, int bedroom, int bathroom) {
+            this.updateSelectedHouseAsync(id, status, address, city, state, price, footage, bedroom, bathroom, null);
         }
         
         /// <remarks/>
-        public void updateSelectedHouseAsync(object userState) {
+        public void updateSelectedHouseAsync(string id, string status, string address, string city, string state, int price, int footage, int bedroom, int bathroom, object userState) {
             if ((this.updateSelectedHouseOperationCompleted == null)) {
                 this.updateSelectedHouseOperationCompleted = new System.Threading.SendOrPostCallback(this.OnupdateSelectedHouseOperationCompleted);
             }
-            this.InvokeAsync("updateSelectedHouse", new object[0], this.updateSelectedHouseOperationCompleted, userState);
+            this.InvokeAsync("updateSelectedHouse", new object[] {
+                        id,
+                        status,
+                        address,
+                        city,
+                        state,
+                        price,
+                        footage,
+                        bedroom,
+                        bathroom}, this.updateSelectedHouseOperationCompleted, userState);
         }
         
         private void OnupdateSelectedHouseOperationCompleted(object arg) {
@@ -305,11 +323,11 @@ namespace Project4.RealtorSvc {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
     public delegate void GetHomesCompletedEventHandler(object sender, GetHomesCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class GetHomesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -331,11 +349,11 @@ namespace Project4.RealtorSvc {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
     public delegate void doUpdatesCompletedEventHandler(object sender, doUpdatesCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class doUpdatesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -357,19 +375,19 @@ namespace Project4.RealtorSvc {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
     public delegate void deleteHouseCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
     public delegate void addHouseCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
     public delegate void showSelectedHouseCompletedEventHandler(object sender, showSelectedHouseCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class showSelectedHouseCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -391,7 +409,7 @@ namespace Project4.RealtorSvc {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
     public delegate void updateSelectedHouseCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
 }
 
