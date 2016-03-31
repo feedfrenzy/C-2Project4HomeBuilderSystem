@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace RealtorLibrary
 {
-    class Realtor
+    public class CClient
     {
+        string clientName = "";
 
-        string realtorName = "";
 
-        public Realtor()
+        public CClient()
         {
 
         }
@@ -19,9 +19,10 @@ namespace RealtorLibrary
 
         public string getName
         {
-            set { realtorName = value;}
-            get { return realtorName; }
+            set { clientName = value; }
+            get { return clientName; }
         }
+
 
     }
 }

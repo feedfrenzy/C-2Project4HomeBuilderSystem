@@ -11,10 +11,26 @@
     <form id="form1" runat="server">
         <div>
             <h1>Jie's Realtor Website</h1><br />
-            <asp:Label ID="lblShow" runat="server" ForeColor="Green"></asp:Label>
+            <asp:Label ID="lblShow" runat="server" ForeColor="Green"></asp:Label><br />
+            <asp:Label ID="lblWarning2" runat="server" ForeColor="Red"></asp:Label><br />
+            <asp:Label ID="lblInstruction" runat="server" Text="Please select the available realtors then check the house you want to visit: "></asp:Label>
+            <asp:DropDownList ID="ddlRealtor" runat="server">
+                <asp:ListItem>Select:</asp:ListItem>
+                <asp:ListItem>Gahbah</asp:ListItem>
+                <asp:ListItem>Jason</asp:ListItem>
+                <asp:ListItem>Alexia</asp:ListItem>
+                <asp:ListItem>John</asp:ListItem>
+                <asp:ListItem>Jie</asp:ListItem>
+            </asp:DropDownList>
+            <asp:Button ID="btnReview" runat="server" Text="Schedule Visit Appointment" OnClick="btnReview_Click" /><br /><br />
 
             <asp:GridView ID="gvHomes" runat="server" AutoGenerateColumns="False" OnRowCommand="gvHomes_RowCommand">
                 <Columns>
+                    <asp:TemplateField HeaderText="Visit Appointment">
+                        <ItemTemplate>
+                            <asp:CheckBox ID="chkSelect" runat="server" />
+                        </ItemTemplate>
+                    </asp:TemplateField>
                     <asp:BoundField DataField="Id" HeaderText="ID" />
                     <asp:BoundField DataField="Address" HeaderText="Home Address" />
                     <asp:BoundField DataField="City" HeaderText="City" />
@@ -94,7 +110,9 @@
 
             <br /><asp:Button ID="btnShow" runat="server" Text="Show All" OnClick="btnShow_Click" />
             
-            <br /><br /><br /><h1>Add Houses</h1>
+            <br /><br />
+            <asp:Button ID="btnRequest" runat="server" Text="Show Home Request" OnClick="btnRequest_Click" /><br />
+            <br /><h1>Add Houses</h1>
             <asp:Label ID="lblShowEnter" runat="server" ForeColor="Green"></asp:Label><br />
             <br /><asp:Label ID="lblWarning" runat="server" ForeColor="Red"></asp:Label><br />
             <br /><asp:Label ID="lblAddress" runat="server" Text="House Address: "></asp:Label>

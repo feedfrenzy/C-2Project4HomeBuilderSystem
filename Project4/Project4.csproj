@@ -63,6 +63,7 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </Content>
     <Content Include="Realtor.asmx" />
+    <Content Include="RequestHomes.aspx" />
     <Content Include="UpdateHomes.aspx" />
     <None Include="Web References\RealtorSvc\Realtor.disco" />
     <Content Include="Web.config" />
@@ -84,6 +85,13 @@
     <Compile Include="Realtor.asmx.cs">
       <DependentUpon>Realtor.asmx</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RequestHomes.aspx.cs">
+      <DependentUpon>RequestHomes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RequestHomes.aspx.designer.cs">
+      <DependentUpon>RequestHomes.aspx</DependentUpon>
     </Compile>
     <Compile Include="UpdateHomes.aspx.cs">
       <DependentUpon>UpdateHomes.aspx</DependentUpon>

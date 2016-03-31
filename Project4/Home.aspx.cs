@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
+using RealtorLibrary;
 using Utilities;
 using System.Data.SqlClient;
 using System.Data;
@@ -14,8 +14,10 @@ namespace Project4
     public partial class Home : System.Web.UI.Page
     {
         RealtorSvc.Realtor pxy = new RealtorSvc.Realtor();
+
+        CHome request = new CHome();
         
-        protected void Page_Load(object sender, EventArgs e)
+        public void Page_Load(object sender, EventArgs e)
         {
             //gvHomes.Columns[0].Visible = false;
 
@@ -70,7 +72,6 @@ namespace Project4
 
             lblShow.Text = "If you didnt see any grid view, that means no categories match in database.";
         }
-
 
         protected void ddlMaxPrice_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -223,6 +224,56 @@ namespace Project4
             }
         }
 
+        protected void btnReview_Click(object sender, EventArgs e)
+        {
+            if (ddlRealtor.SelectedValue.ToString() == "Select:")
+            {
+                lblWarning2.Text = "Please assign a realtor!";
+            }
+            else
+            {
+                lblWarning2.Text = "";
+                int count = 0;
+                string assignReal = ddlRealtor.SelectedValue.ToString();
 
+                for (int index = 0; index < gvHomes.Rows.Count; index++)
+                {
+                    CheckBox selectValue = (CheckBox)gvHomes.Rows[index].FindControl("chkSelect");
+
+                    if (selectValue.Checked)
+                    {
+                        count++;
+
+                        string address = gvHomes.Rows[index].Cells[2].ToString();
+                        string city = gvHomes.Rows[index].Cells[3].ToString();
+                        string state = gvHomes.Rows[index].Cells[4].ToString();
+                        int price = int.Parse(gvHomes.Rows[index].Cells[5].ToString());
+                        int square = int.Parse(gvHomes.Rows[index].Cells[6].ToString());
+                        int bedrooms = int.Parse(gvHomes.Rows[index].Cells[7].ToString());
+                        int bathroom = int.Parse(gvHomes.Rows[index].Cells[8].ToString());
+                        string status = gvHomes.Rows[index].Cells[9].ToString();
+
+
+
+
+                        //request.Visit(assignReal, address, city, state, price, square, status, bedrooms, bathroom);
+                        
+
+                        
+                    }
+                    
+                }
+
+                if (count == 0)
+                {
+                    lblWarning2.Text = "No houses is selected";
+                }
+            }
+        }
+
+        protected void btnRequest_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("RequestHomes.aspx");
+        }
     }
 }

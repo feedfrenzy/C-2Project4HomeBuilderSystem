@@ -37,3 +37,12 @@ C:\Users\Feed_\OneDrive\Documents\Visual Studio 2012\Projects\CIS 3342\Project4\
 C:\Users\Feed_\OneDrive\Documents\Visual Studio 2012\Projects\CIS 3342\Project4\CIS3342Project4\Utilities\obj\Debug\Utilities.dll
 C:\Users\Feed_\OneDrive\Documents\Visual Studio 2012\Projects\CIS 3342\Project4\CIS3342Project4\Utilities\obj\Debug\Utilities.pdb
 C:\Users\Feed_\OneDrive\Documents\Visual Studio 2012\Projects\CIS 3342\Project4\CIS3342Project4\Utilities\obj\Debug\Utilities.csprojResolveAssemblyReference.cache
+C:\Users\jiehuang\Desktop\CIS3342\CIS3342Project4\Utilities\bin\Debug\Utilities.dll
+C:\Users\jiehuang\Desktop\CIS3342\CIS3342Project4\Utilities\bin\Debug\Utilities.pdb
+C:\Users\jiehuang\Desktop\CIS3342\CIS3342Project4\Utilities\obj\Debug\Utilities.dll
+C:\Users\jiehuang\Desktop\CIS3342\CIS3342Project4\Utilities\obj\Debug\Utilities.pdb
+C:\Users\Feed_\Desktop\CIS3342Project4\Utilities\bin\Debug\Utilities.dll
+C:\Users\Feed_\Desktop\CIS3342Project4\Utilities\bin\Debug\Utilities.pdb
+C:\Users\Feed_\Desktop\CIS3342Project4\Utilities\obj\Debug\Utilities.csprojResolveAssemblyReference.cache
+C:\Users\Feed_\Desktop\CIS3342Project4\Utilities\obj\Debug\Utilities.dll
+C:\Users\Feed_\Desktop\CIS3342Project4\Utilities\obj\Debug\Utilities.pdb
